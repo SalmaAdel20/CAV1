@@ -1,17 +1,33 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>GPS Tracking System</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content padding class="getstart">
+
+<ion-list>
+    <!--(ngSubmit)="SendNote()" -->
+  <form [formGroup]="myForm"  >
+   
+  <ion-item   class="ionContent">
+      <ion-label floating><h1> Write your Note Here :</h1></ion-label>
+    <ion-input   formControlName="Note"   type="email" #Note></ion-input>
+   
+  </ion-item>
+  <ion-label *ngIf="!myForm.controls.Note.valid  && (myForm.controls.Note.dirty || submitAttempt)">
+    <p style="color:red"> minimum length is 10 characters.</p>
+</ion-label>
+
+
+<p>
+  <button ion-button round  type="submit" [disabled]="!myForm.valid" (click)="SendNote()" > Send now  <ion-icon name="ios-create-outline"></ion-icon></button> 
+</p>
+  
+ 
+
+
+</form>
+</ion-list>
+
 </ion-content>
