@@ -11,23 +11,20 @@
   <form [formGroup]="myForm"  >
    
   <ion-item   class="ionContent">
+      <h3>{{DID}}</h3><br>
       <ion-label floating><h1> Write your Note Here :</h1></ion-label>
-    <ion-input   formControlName="Note"   type="email" #Note></ion-input>
-   
+      <ion-input   formControlName="Note"   type="email" #Note></ion-input>
   </ion-item>
   <ion-label *ngIf="!myForm.controls.Note.valid  && (myForm.controls.Note.dirty || submitAttempt)">
     <p style="color:red"> minimum length is 10 characters.</p>
-</ion-label>
+  </ion-label>
 
-
-<p>
-  <button ion-button round  type="submit" [disabled]="!myForm.valid" (click)="SendNote()" > Send now  <ion-icon name="ios-create-outline"></ion-icon></button> 
-</p>
-  
- 
-
-
+  <p>
+    <button ion-button round  type="submit" [disabled]="!myForm.valid" (click)="SendNote()" >
+      <ion-icon name="ios-create-outline"></ion-icon> Send now
+    </button>
+  </p>
 </form>
+  <h3>{{this.lat}} ~~ {{this.long}}</h3>
 </ion-list>
-
 </ion-content>

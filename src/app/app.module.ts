@@ -3,10 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { environment } from '../environments/environment';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,14 +12,12 @@ import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { Device } from '@ionic-native/device';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
-    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -34,10 +29,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
-    TabsPage
   ],
   providers: [
     Geolocation ,
@@ -45,6 +37,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AngularFireDatabase,
     StatusBar,
     SplashScreen,
+    Device,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
